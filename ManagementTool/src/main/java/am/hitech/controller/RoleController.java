@@ -21,14 +21,14 @@ public class RoleController {
     private RoleService roleService;
 
     @GetMapping
-    public ResponseEntity<Role> getById(@RequestParam int id){
+    public ResponseEntity<Role> getById(@RequestParam int id) {
         Role role = roleService.findById(id);
 
-       return ResponseEntity.ok(role);
+        return ResponseEntity.ok(role);
     }
 
     @GetMapping("/get-all")
-    public ResponseEntity<?>getAll(@PageableDefault Pageable pageable) {
+    public ResponseEntity<?> getAll(@PageableDefault Pageable pageable) {
         Page<Role> roles = roleService.getAll(pageable);
         return ResponseEntity.ok(roles);
     }
